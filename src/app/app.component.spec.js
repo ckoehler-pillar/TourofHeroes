@@ -4,6 +4,7 @@ var testing_1 = require("@angular/core/testing");
 var platform_browser_1 = require("@angular/platform-browser");
 describe('AppComponent', function () {
     var de;
+    var de2;
     var comp;
     var fixture;
     beforeEach(testing_1.async(function () {
@@ -16,12 +17,19 @@ describe('AppComponent', function () {
         fixture = testing_1.TestBed.createComponent(app_component_1.AppComponent);
         comp = fixture.componentInstance;
         de = fixture.debugElement.query(platform_browser_1.By.css('h1'));
+        de2 = fixture.debugElement.query(platform_browser_1.By.css('h2'));
     });
     it('should create component', function () { return expect(comp).toBeDefined(); });
     it('should have expected <h1> text', function () {
         fixture.detectChanges();
         var h1 = de.nativeElement;
         expect(h1.innerText).toMatch(/Tour of Heroes/i, '<h1> should say something about "Tour of Heroes"');
+    });
+    it('should create a hero', function () { return expect(comp.hero).toBeDefined(); });
+    it('should have expected hero name in h2', function () {
+        fixture.detectChanges();
+        var h2 = de2.nativeElement;
+        expect(h2.innerText).toMatch(/WindStorm/i, '<h2> should say something about windstorm');
     });
 });
 //# sourceMappingURL=app.component.spec.js.map
