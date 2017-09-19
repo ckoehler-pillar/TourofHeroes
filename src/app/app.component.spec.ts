@@ -6,6 +6,8 @@ import { DebugElement } from '@angular/core';
 describe('AppComponent', function () {
   let de: DebugElement;
   let de2: DebugElement;
+  let heroIdElement: DebugElement;
+  let heroNameElement: DebugElement;
   let comp: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
@@ -21,6 +23,8 @@ describe('AppComponent', function () {
     comp = fixture.componentInstance;
     de = fixture.debugElement.query(By.css('h1'));
     de2 = fixture.debugElement.query(By.css('h2'));
+    heroIdElement = fixture.debugElement.query(By.css('div.hero_id'));
+    heroNameElement = fixture.debugElement.query(By.css('div.hero_name'));
   });
 
   it('should create component', () => expect(comp).toBeDefined() );
@@ -38,5 +42,17 @@ describe('AppComponent', function () {
     fixture.detectChanges();
     const h2 = de2.nativeElement;
     expect(h2.innerText).toMatch(/WindStorm/i, '<h2> should say something about windstorm');
+  });
+
+  it('should have heroes id in div', () => {
+    fixture.detectChanges();
+    const heroId = heroIdElement.nativeElement;
+    expect(heroId.innerText).toMatch(/1/i, '<div> should have hero\'s id');
+  });
+
+  it('should have heroes name in div', () => {
+    fixture.detectChanges();
+    const heroName = heroNameElement.nativeElement;
+    expect(heroName.innerText).toMatch(/windstorm/i, '<div> should have hero\'s id');
   });
 });
