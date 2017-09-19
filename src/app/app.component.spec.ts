@@ -2,6 +2,7 @@ import { AppComponent } from './app.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 describe('AppComponent', function () {
   let de: DebugElement;
@@ -13,7 +14,8 @@ describe('AppComponent', function () {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppComponent ]
+      declarations: [ AppComponent ], 
+      imports: [ FormsModule ]
     })
     .compileComponents();
   }));
@@ -53,6 +55,9 @@ describe('AppComponent', function () {
   it('should have heroes name in div', () => {
     fixture.detectChanges();
     const heroName = heroNameElement.nativeElement;
-    expect(heroName.innerText).toMatch(/windstorm/i, '<div> should have hero\'s id');
+    expect(heroName.innerText).toMatch(/name/i, '<div> should have hero\'s id');
   });
+
+  // it('')
+
 });

@@ -2,6 +2,7 @@
 var app_component_1 = require("./app.component");
 var testing_1 = require("@angular/core/testing");
 var platform_browser_1 = require("@angular/platform-browser");
+var forms_1 = require("@angular/forms");
 describe('AppComponent', function () {
     var de;
     var de2;
@@ -11,7 +12,8 @@ describe('AppComponent', function () {
     var fixture;
     beforeEach(testing_1.async(function () {
         testing_1.TestBed.configureTestingModule({
-            declarations: [app_component_1.AppComponent]
+            declarations: [app_component_1.AppComponent],
+            imports: [forms_1.FormsModule]
         })
             .compileComponents();
     }));
@@ -43,7 +45,8 @@ describe('AppComponent', function () {
     it('should have heroes name in div', function () {
         fixture.detectChanges();
         var heroName = heroNameElement.nativeElement;
-        expect(heroName.innerText).toMatch(/windstorm/i, '<div> should have hero\'s id');
+        expect(heroName.innerText).toMatch(/name/i, '<div> should have hero\'s id');
     });
+    // it('')
 });
 //# sourceMappingURL=app.component.spec.js.map
